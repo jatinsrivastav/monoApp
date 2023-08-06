@@ -11,8 +11,8 @@ import lombok.Data;
 @Entity(name = "questions")
 public class Question {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-   private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private Integer id; // I have to put auto increment condition in the MySql cause it was not incrementing by itself
    private String category;
    private String option1;
    private String option2;

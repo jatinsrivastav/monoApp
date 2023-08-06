@@ -2,12 +2,9 @@ package com.QuizApp.Quiz.controller;
 
 import com.QuizApp.Quiz.Service.QuestionService;
 import com.QuizApp.Quiz.model.Question;
-import jdk.jfr.Category;
+import org.aspectj.weaver.patterns.TypePatternQuestions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,11 @@ public class QuestionController {
     @GetMapping("/question/{category}")
     public  List<Question> getquestionbyCategory(@PathVariable("category") String category){
         return questionService.getQuestion(category);
+    }
+
+    @PostMapping("/add")
+    public String addQuestion(@RequestBody Question question){
+        return questionService.addQuestion(question);
+
     }
 }
